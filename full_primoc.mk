@@ -17,6 +17,9 @@
 # common msm7x30 configs
 $(call inherit-product, device/htc/msm7x30-common/msm7x30.mk)
 
+# Inherit qcom proprietary blobs
+$(call inherit-product, vendor/qcom/proprietary/qcom-vendor.mk)
+
 # The gps config appropriate for this device
 
 PRODUCT_COPY_FILES += \
@@ -137,3 +140,8 @@ $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 PRODUCT_NAME := htc_primoc
 PRODUCT_DEVICE := primoc
 PRODUCT_MODEL := Full Android on PrimoC
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.goo.developerid=gannon5197 \
+    ro.goo.rom=aokp4.2_$(TARGET_PRODUCT) \
+    ro.goo.version=$(shell date +%s)
